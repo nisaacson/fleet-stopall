@@ -14,7 +14,7 @@ function killPID(pid, callback) {
     },
     function(cb) {
       var cmd = 'fleet-stop ' + pid
-      inspect(cmd, 'stopping pid')
+      console.log(cmd)
       var patternPID = pid.replace(/pid#/, '')
       var pattern = new RegExp('stopped ' + patternPID)
       var child = exec(cmd, function(err, stdout, stderr) {
@@ -40,10 +40,13 @@ function killPID(pid, callback) {
             stack: new Error().stack
           })
         }
-        console.log(pattern)
+        if (stderr) {
+          console.log(stderr)
+        }
+        if (stdout) {
+          console.log(stdout)
+        }
         killed = pattern.test(stdout)
-        inspect(stdout, 'stdout')
-        inspect(stderr, 'stderr')
         inspect(killed, 'killed')
         cb()
       })
