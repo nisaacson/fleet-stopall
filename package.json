@@ -1,6 +1,6 @@
 {
   "name": "fleet-stopall",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helpers for managing fleet drones",
   "main": "index.js",
   "scripts": {

@@ -6,7 +6,7 @@ module.exports = function (pids, callback) {
 }
 function killPID(pid, callback) {
   var killed = false
-  var maxAttempts = 10
+  var maxAttempts = 100
   var attempt = 0
   async.until(
     function () {
