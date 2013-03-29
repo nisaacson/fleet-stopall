@@ -2,7 +2,7 @@ var inspect = require('eyespect').inspector()
 var exec = require('child_process').exec;
 var async = require('async')
 module.exports = function (pids, callback) {
-  async.forEachSeries(pids, killPID, callback)
+  async.forEach(pids, killPID, callback)
 }
 function killPID(pid, callback) {
   var killed = false
